@@ -1,0 +1,16 @@
+<!--pages/home/home.wxml-->
+
+
+<view>
+
+  <swiper indicator-dots='true' autoplay='true' class='swiper'>
+    <block wx:for="{{bannerArr}}">
+      <swiper-item class="banner-item">
+        <image mode='aspectFill' class='item-image' src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view></view>
+
+</view>
