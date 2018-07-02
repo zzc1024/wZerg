@@ -6,11 +6,28 @@
   <swiper indicator-dots='true' autoplay='true' class='swiper'>
     <block wx:for="{{bannerArr}}">
       <swiper-item class="banner-item">
-        <image mode='aspectFill' class='item-image' src="{{item}}"></image>
+        <image class='item-image' mode='aspectFill' src="{{item}}"></image>
       </swiper-item>
     </block>
   </swiper>
 
-  <view></view>
+  <view class='home-main'>
+
+    <view class='home-main-bursting'>
+      <text class='bursting-text-first'>爆款推荐商品</text>
+      <text class='bursting-text-second'>查看更多></text>
+      <image class='bursting-image' mode='aspectFill' src='{{bannerArr[2]}}'></image>
+    </view>
+
+    <view class='home-main-products'>
+      <block wx:for='{{BestGoodsArr}}'>
+        <view class='product-content'>
+          <image class='product-image' src='{{item.logo}}'></image>
+          <text class='product-text-first'>11111</text>
+          <text class='product-text-second'>111</text>
+        </view>
+      </block>
+    </view>
+  </view>
 
 </view>

@@ -15,12 +15,10 @@ Page({
 
   onLoad:function()
   {
-    home.getBannerData(this.callBack);
-  },
-
-  callBack:function(res)
-  {
-     this.setData({'bannerArr':res});
+    home.getBannerData((res) => { this.setData({ 'bannerArr': res });});
+    home.getBestGoodsData((res) => { this.setData({ 'BestGoodsArr': res }); });
+    home.getNewGoodsData((res) => { this.setData({ 'NewGoodsArr': res }); });
+    home.getHotGoodsData((res) => { this.setData({ 'HotGoodsArr': res }); });
   }
   
 })
