@@ -11,23 +11,48 @@
     </block>
   </swiper>
 
-  <view class='home-main'>
+  <block wx:for="{{data}}" wx:for-item="v">
+    <view class='home-main'>
 
-    <view class='home-main-bursting'>
-      <text class='bursting-text-first'>爆款推荐商品</text>
-      <text class='bursting-text-second'>查看更多></text>
-      <image class='bursting-image' mode='aspectFill' src='{{bannerArr[2]}}'></image>
-    </view>
+      <view class='home-main-bursting'>
+        <text class='bursting-text-first'>{{v.title}}</text>
+        <text class='bursting-text-second'>查看更多></text>
+        <image wx:if="{{v.if==1}}" class='bursting-image' mode='aspectFill' src='{{bannerArr[0]}}'></image>
+        <image wx:if="{{v.if==2}}" class='bursting-image' mode='aspectFill' src='{{bannerArr[1]}}'></image>
+        <image wx:if="{{v.if==3}}" class='bursting-image' mode='aspectFill' src='{{bannerArr[2]}}'></image>
+      </view>
 
-    <view class='home-main-products'>
-      <block wx:for='{{BestGoodsArr}}'>
-        <view class='product-content'>
-          <image class='product-image' src='{{item.logo}}'></image>
-          <text class='product-text-first'>11111</text>
-          <text class='product-text-second'>111</text>
-        </view>
-      </block>
+      <view wx:if="{{v.if==1}}" class='home-main-products'>
+        <block wx:for='{{BestGoodsArr}}'>
+          <view class='product-content'>
+            <image class='product-image' src='{{item.logo}}' data-id='{{item.id}}' bindtap='onProductItemTap'></image>
+            <view class='product-text-first'><text class='first'>￥{{item.shop_price}}</text><text class='second'>￥{{item.supermarket_price}}</text></view>
+            <view class='product-text-second'><text>{{item.name}}</text></view>
+          </view>
+        </block>
+      </view>
+
+      <view wx:if="{{v.if==2}}" class='home-main-products'>
+        <block wx:for='{{NewGoodsArr}}'>
+          <view class='product-content'>
+            <image class='product-image' src='{{item.logo}}' data-id='{{item.id}}' bindtap='onProductItemTap'></image>
+            <view class='product-text-first'><text class='first'>￥{{item.shop_price}}</text><text class='second'>￥{{item.supermarket_price}}</text></view>
+            <view class='product-text-second'><text>{{item.name}}</text></view>
+          </view>
+        </block>
+      </view>
+
+      <view wx:if="{{v.if==3}}" class='home-main-products'>
+        <block wx:for='{{HotGoodsArr}}'>
+          <view class='product-content'>
+            <image class='product-image' src='{{item.logo}}' data-id='{{item.id}}' bindtap='onProductItemTap'></image>
+            <view class='product-text-first'><text class='first'>￥{{item.shop_price}}</text><text class='second'>￥{{item.supermarket_price}}</text></view>
+            <view class='product-text-second'><text>{{item.name}}</text></view>
+          </view>
+        </block>
+      </view>
+
     </view>
-  </view>
+  </block>
 
 </view>

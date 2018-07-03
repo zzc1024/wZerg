@@ -7,10 +7,12 @@ class Base{
     this.baseRequestUrl = Config.restUrl;
   }
 
+  /*
+   * 发送http请求模板
+   */
   request(params)
   {
     var url = this.baseRequestUrl + params.url;
-
     if(!params.type)
       params.type = 'GET';
     
@@ -35,6 +37,14 @@ class Base{
       }
     })
   }
+
+  /*
+   * 获取元素上绑定的值
+   */
+  getDataSet(event,key){
+    return event.currentTarget.dataset[key];
+  }
+
 }
 
 export {Base};

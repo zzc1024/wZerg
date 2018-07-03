@@ -17,7 +17,7 @@
 }
 
 .home-main{
-  font-size: 36rpx;
+  font-size: 38rpx;
   width: 100%;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .bursting-text-second{
-  font-size: 24rpx;
+  font-size: 28rpx;
   margin: 32rpx 20rpx 0 0;
   float: right;
 }
@@ -55,17 +55,26 @@
 .product-image{
   margin: 1% 2% 0 2%;
   width: 96%;
-  height: 79%;
+  height: 77%;
   border-radius:20rpx;
 }
 
 .product-text-first{
-  position: relative;
-  left: 42%;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.first{
+  color: red;
+  margin-right: 8rpx;
+}
+
+.second{
+  font-size: 28rpx;
+  text-decoration: line-through;
 }
 
 .product-text-second{
-  position: relative;
-  left: 24%;
-  top: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
 }
