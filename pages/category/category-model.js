@@ -20,7 +20,7 @@ class Category extends Base{
     var param = {
       url: "product/category/" + id,
       sCallBack: function (data) {
-        callback && callback(data);
+        callback && callback(data.goods_cat);
       }
     }
     this.request(param);

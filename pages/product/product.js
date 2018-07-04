@@ -1,8 +1,10 @@
 // pages/product/product.js
 
 import { Product } from './product-model.js';
+import { Cart } from '../../pages/cart/cart-model.js';
 
 var product = new Product();
+var cart = new Cart();
 
 Page({
 
@@ -27,7 +29,7 @@ Page({
 
   _loadData: function (){
     product.getDatailInfo(this.data.id,(data)=>{
-      this.setData({product:data});
+      this.setData({product:data,cartTotalCounts:cart.getCartTotalCounts()});
     });
   },
 
@@ -40,6 +42,23 @@ Page({
   onTabsItemTap:function(event){
     var index = product.getDataSet(event,'index');
     this.setData({currentTabsIndex:index});
+  },
+
+  onAddingToCartTap:function(event){
+    this.addToCart();
+    var counts = this.data.cartTotalCounts + this.data.productCount;
+    this.setData({ cartTotalCounts: counts});
+  },
+
+  addToCart:function(){
+    var tempObj = {};
+    var keys = ['id', 'name', 'logo','shop_price'];
+    for(var key in this.data.product){
+      if(keys.indexOf(key) >= 0){
+        tempObj[key] = this.data.product[key];
+      }
+    }
+    cart.add(tempObj,this.data.productCount);
   }
   
 })

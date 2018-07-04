@@ -6,13 +6,26 @@
 
     <view class='left-box'>
       <block wx:for="{{categoryTypeArr}}">
-        <view class='menu-item'>
+        <view class="menu-item {{currentMenuIndex==index?'selected':''}}" data-id="{{item.id}}" data-index="{{index}}"  bindtap="changeCategory" data-title-name="{{item.name}}">
           {{item.name}}
         </view>
       </block>
     </view>
 
-    <view class='right-box'></view>
+    <view class='right-box'>
+      <view class='foods-type'>
+          <view class="category-detail-box">
+            <view class="category-main">
+              <block wx:for="{{categoryProducts}}">
+                <view class="category-goods-items {{index%3==1?'middle':''}}" data-id="{{item.id}}" bindtap="onProductsItemTap">
+                  <image src="{{item.sm_logo}}" mode="aspectFill"></image>
+                  <view>{{item.name}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+      </view>
+    </view>
 
   </view>
 </view>
