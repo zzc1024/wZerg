@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/product/product",
     "pages/category/category",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/order/order"
   ],
   "window": {
     "navigationBarBackgroundColor": "#AB956D",

@@ -33,7 +33,7 @@ class Base{
       },
       fail: function(err) 
       {
-        console.log(err);
+        params.eCallBack && params.eCallBack(res.data);
       }
     })
   }
